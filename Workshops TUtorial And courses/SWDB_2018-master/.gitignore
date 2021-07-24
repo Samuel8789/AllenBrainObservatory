@@ -1,0 +1,7 @@
+*.DS_Store
+*.nwb
+*.ipynb_checkpoints/
+.idea/
+**/x86_64/
+**/Modeling/**/output
+

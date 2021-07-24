@@ -1,0 +1,55 @@
+{
+  "manifest": [
+    {
+      "type": "manifest_version",
+      "value": "1.2"
+    },
+    {
+      "key": "BASEDIR",
+      "type": "dir",
+      "spec": "."
+    },
+    {
+      "key": "EXPERIMENT_CONTAINERS",
+      "type": "file",
+      "spec": "experiment_containers.json",
+      "parent_key": "BASEDIR"
+    },
+    {
+      "key": "EXPERIMENTS",
+      "type": "file",
+      "spec": "ophys_experiments.json",
+      "parent_key": "BASEDIR"
+    },
+    {
+      "key": "EXPERIMENT_DATA",
+      "type": "file",
+      "spec": "ophys_experiment_data/%d.nwb",
+      "parent_key": "BASEDIR"
+    },
+    {
+      "key": "ANALYSIS_DATA",
+      "type": "file",
+      "spec": "ophys_experiment_analysis/%d_%s_analysis.h5",
+      "parent_key": "BASEDIR"
+    },
+    {
+      "key": "EVENTS_DATA",
+      "type": "file",
+      "spec": "ophys_experiment_events/%d_events.npz",
+      "parent_key": "BASEDIR"
+    },
+    {
+      "key": "CELL_SPECIMENS",
+      "type": "file",
+      "spec": "cell_specimens.json",
+      "parent_key": "BASEDIR"
+    },
+    {
+      "key": "STIMULUS_MAPPINGS",
+      "type": "file",
+      "spec": "stimulus_mappings.json",
+      "parent_key": "BASEDIR"
+    }
+  ]
+}
