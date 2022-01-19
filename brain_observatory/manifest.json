@@ -2,7 +2,7 @@
   "manifest": [
     {
       "type": "manifest_version",
-      "value": "1.2"
+      "value": "1.3"
     },
     {
       "key": "BASEDIR",
@@ -49,6 +49,12 @@
       "key": "STIMULUS_MAPPINGS",
       "type": "file",
       "spec": "stimulus_mappings.json",
+      "parent_key": "BASEDIR"
+    },
+    {
+      "key": "EYE_GAZE_DATA",
+      "type": "file",
+      "spec": "ophys_eye_gaze_mapping/%d_eyetracking_dlc_to_screen_mapping.h5",
       "parent_key": "BASEDIR"
     }
   ]
