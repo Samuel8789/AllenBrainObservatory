@@ -18,7 +18,9 @@ from PathStructure import PathStructure
 
 ProjectCodePath, ProjectName, ProjectDataPath, ProjectRAWPath, ProjectTempRAWPath =PathStructure()
 #%%
-boc = BrainObservatoryCache(manifest_file=ProjectDataPath+'/boc/manifest.json')
+# boc = BrainObservatoryCache(manifest_file=ProjectDataPath+'/boc/manifest.json')
+boc = BrainObservatoryCache(manifest_file='boc/manifest.json')
+
 #%%
 boc.get_all_targeted_structures()
 boc.get_all_imaging_depths()
@@ -33,7 +35,7 @@ exps = boc.get_experiment_containers(
     targeted_structures=[visual_area], 
     cre_lines=[cre_line])
 exps = pd.DataFrame(exps)
-exps
+
 #%%
 experiment_container_id = 511510736
 exp_cont = boc.get_ophys_experiments(
@@ -43,7 +45,7 @@ pd.DataFrame(exp_cont)
 #%%
 exp_cont_ns = boc.get_ophys_experiments(
     experiment_container_ids=[experiment_container_id], 
-    stimuli=['natural_scenes'],
+    stimuli=['locally_sparse_noise'],
 )
 pd.DataFrame(exp_cont_ns)
 
