@@ -7,7 +7,7 @@
 *.asv
 mov.mat
 *.nwb
-
+*.npz
 # OSX / *nix default autosave extension
 *.m~
 
