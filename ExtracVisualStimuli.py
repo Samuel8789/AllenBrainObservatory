@@ -23,14 +23,18 @@ pprint.pprint(stims)
 
 #%%
 
-VisID=505693621
+VisID=501474098
 data_set = boc.get_ophys_experiment_data(VisID)
 print("Metadata from NWB file:")
 pprint.pprint(data_set.get_metadata())
 tab=data_set.get_stimulus_epoch_table()
+test=data_set.get_stimulus_table('natural_movie_two')
+
 
 z=data_set.list_stimuli()
-y=data_set.get_stimulus_template('locally_sparse_noise')
+y=data_set.get_stimulus_template('natural_movie_two')
+yy=data_set.get_stimulus_template('natural_movie_two')[test['frame'].values,:,:]
+
 
 scene_nums = [10, 20]
 fig, axes = plt.subplots(1,len(scene_nums))
@@ -40,23 +44,23 @@ for ax,scene in zip(axes, scene_nums):
     ax.set_title('scene %d' % scene)
 
 
-
-
+params, template = data_set.get_stimulus(64000)
+pd.Series(params[2])
+img = plt.imshow(template, cmap=plt.cm.gray, interpolation='none')
 
 
 
 #%%
 
-params, template = data_set.get_stimulus(25000)
 img = plt.imshow(y[1,:,:], cmap=plt.cm.gray, interpolation='none')
-sio.savemat('sparsenoise.mat',{'y':y})
+sio.savemat('natural_movie_two.mat',{'y':y})
 
 
 
 
 m=si.BrainObservatoryMonitor()
 img_screen=m.natural_movie_image_to_screen(template)
-m.show_image(img_screen, warp=False, mask=True)
+m.show_image(img_screen, warp=True)
 
 
 
