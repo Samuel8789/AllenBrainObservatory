@@ -5,7 +5,9 @@
 ### MATLAB ###
 # Windows default autosave extension
 *.asv
-mov.mat
+*.mat
+*.npz
+*.json
 *.nwb
 *.npz
 # OSX / *nix default autosave extension
