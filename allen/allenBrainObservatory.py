@@ -440,7 +440,7 @@ class AllenBrainObservatory(Project):
         activity=spikes
         
         drift_obj=DriftingGratings(data_set)
-        peak_info=drift_obj.get_peak() #gives error
+        # peak_info=drift_obj.get_peak() #gives error
         reponse=drift_obj.get_response() # not proper dimensions
         noise_cor=drift_obj.get_noise_correlation()
         rep_sim=drift_obj.get_representational_similarity()
