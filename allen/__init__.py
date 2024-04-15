@@ -10,18 +10,30 @@ from  .allenBrainObservatory import AllenBrainObservatory
 import logging
 import logging.config
 # from LabNY.ny_lab.data_analysis.resultsAnalysis import ResultsAnalysis
+import os
+from project_manager.ProjectsCLass import Project
 
+# log_dir='\\\\?\\'+r'K:\Projects\LabNY\Full_Mice_Pre_Processed_Data\Logging\AllenModule'
 
-log_dir='\\\\?\\'+r'K:\Projects\LabNY\Full_Mice_Pre_Processed_Data\Logging\AllenModule'
+# log_files=glob.glob(log_dir+'\\app_errors_allen**.log')
+# if log_files:
+#     new_file_number=len(log_files)+1
+# else:
+#     new_file_number=1
 
-log_files=glob.glob(log_dir+'\\app_errors_allen**.log')
+# filename='\\\\?\\'+r'K:\Projects\LabNY\Full_Mice_Pre_Processed_Data\Logging\AllenModule\app_allen'+str(new_file_number)+'.log'
+# filename_errors='\\\\?\\'+r'K:\Projects\LabNY\Full_Mice_Pre_Processed_Data\Logging\AllenModule\app_errors_allen'+str(new_file_number)+'.log'
+
+log_dir=os.path.join(Project.check_dropbox_path(),'Projects','AllenBrainObservatory' ,'Logging')
+log_files=glob.glob(log_dir+os.sep+'app_errors_**.log')
 if log_files:
     new_file_number=len(log_files)+1
 else:
     new_file_number=1
 
-filename='\\\\?\\'+r'K:\Projects\LabNY\Full_Mice_Pre_Processed_Data\Logging\AllenModule\app_allen'+str(new_file_number)+'.log'
-filename_errors='\\\\?\\'+r'K:\Projects\LabNY\Full_Mice_Pre_Processed_Data\Logging\AllenModule\app_errors_allen'+str(new_file_number)+'.log'
+filename=log_dir + os.sep+'app_'+str(new_file_number)+'.log'
+filename_errors=log_dir + os.sep+'app_errors_'+str(new_file_number)+'.log'
+
 
 
 
